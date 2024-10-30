@@ -1,0 +1,23 @@
+{
+  "name": "mistertoy-beckened",
+  "version": "1.0.0",
+  "main": "servise.js",
+  "scripts": {
+    "dev": "set PORT=3032&nodemon --ignore \"./data\" servise.js",
+    "start": "node servise.js"
+  },
+  "author": "raf",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "follow-redirects": "^1.15.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

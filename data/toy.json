@@ -1,0 +1,130 @@
+[
+    {
+      "_id": "6K71E",
+      "name": "asdasdasd",
+      "price": 123,
+      "labels": [],
+      "inStock": true,
+      "createdAt": 1647294025410
+    },
+    {
+      "_id": "46",
+      "name": "123",
+      "price": 123123,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "inStock": true,
+      "createdAt": "1987-05-24T05:10:20.385Z"
+    },
+    {
+      "_id": "47",
+      "name": "malesuada nullam",
+      "price": 87,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1996-11-03T17:53:36.252Z",
+      "inStock": true
+    },
+    {
+      "_id": "48",
+      "name": "tellus sed",
+      "price": 65,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1994-03-06T05:38:22.239Z",
+      "inStock": false
+    },
+    {
+      "_id": "49",
+      "name": "sed ac",
+      "price": 86,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1975-07-09T02:49:17.140Z",
+      "inStock": true
+    },
+    {
+      "_id": "50",
+      "name": "porttitor eros",
+      "price": 65,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1981-04-14T19:27:35.805Z",
+      "inStock": true
+    },
+    {
+      "_id": "51",
+      "name": "non magna",
+      "price": 12,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1995-12-08T04:15:20.430Z",
+      "inStock": true
+    },
+    {
+      "_id": "52",
+      "name": "nec tempor",
+      "price": 68,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1990-06-20T12:06:48.197Z",
+      "inStock": true
+    },
+    {
+      "_id": "53",
+      "name": "odio eget",
+      "price": 51,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1994-06-13T21:12:31.058Z",
+      "inStock": false
+    },
+    {
+      "_id": "54",
+      "name": "pulvinar orci",
+      "price": 87,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1989-05-02T03:20:58.435Z",
+      "inStock": false
+    },
+    {
+      "_id": "55",
+      "name": "consequat tincidunt",
+      "price": 14,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "createdAt": "1986-06-13T11:22:03.188Z",
+      "inStock": false
+    }
+]
