@@ -12,25 +12,35 @@ const corsOptions = {
         'http://127.0.0.1:8080',
         'http://localhost:8080',
         'http://127.0.0.1:5173',
-        'http://localhost:5173'
+        'http://localhost:5173',
+        'http://127.0.0.1:5174',
+        'http://localhost:5174'
     ],
     credentials: true
 }
 
-// Express Config:
 app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json())
 app.use(cors(corsOptions))
 
 app.get('/api/toy', (req, res) => {
+    console.log(req.query);
+
     const filterBy = {
-        txt: req.query.txt || '',
-        minPrice: +req.query.minPrice || 0,
-        maxPrice: +req.query.maxPrice || Infinity,
-        pageIdx: req.query.pageIdx || undefined,
+        name: req.query.name || '',
+        price: req.query.price || '',
+        labels: req.query.labels || [],
     }
-    toyService.query(filterBy)
+
+    const sortBy = {
+        field: req.query.sortBy || 'name',
+        field: req.query.sortBy || 'created',
+        field: req.query.sortBy || 'inStock',
+        // field: req.query.sortBy || 'name',
+        dir: parseInt(req.query.sortDir) || 1 
+    }
+    toyService.query(filterBy,sortBy)
         .then(toys => res.send(toys))
         .catch(err => {
             loggerService.error('Cannot get toys', err)
@@ -56,7 +66,7 @@ app.post('/api/toy', (req, res) => {
         price: +price,
         labels,
         inStock,
-        createdAt: new Date().toISOString() 
+        createdAt: new Date().toISOString()
     }
 
     toyService.save(toy)
@@ -66,35 +76,36 @@ app.post('/api/toy', (req, res) => {
             res.status(400).send('Cannot save toy')
         })
 })
+
+
 
 app.put('/api/toy/:id', (req, res) => {
-    const { id } = req.params
-    const { name, price, labels, inStock } = req.body
-    const toy = {
-        _id: id,
-        name,
-        price: +price,
-        labels,
-        inStock,
-        createdAt: new Date(req.body.createdAt).toISOString() 
-    }
+    const { id } = req.params;
+    const toyData = req.body; // Extract toy data from the request body
 
-    toyService.save(toy)
-        .then(savedToy => res.send(savedToy))
+    // Add your logic to update the toy in the database
+    toyService.updateToy(id, toyData)
+        .then(updatedToy => res.json(updatedToy))
         .catch(err => {
-            loggerService.error('Cannot save toy', err)
-            res.status(400).send('Cannot save toy')
-        })
-})
+            console.error('Cannot update toy', err);
+            res.status(400).send('Cannot update toy');
+        });
+});
 
 app.delete('/api/toy/:toyId', (req, res) => {
     const { toyId } = req.params
+    console.log(toyId)
+
     toyService.remove(toyId)
         .then(() => res.send('Removed!'))
         .catch(err => {
-            loggerService.error('Cannot remove toy', err)
             res.status(400).send('Cannot remove toy')
         })
 })
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
+  })
+  
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`))
